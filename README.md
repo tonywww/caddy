@@ -1,6 +1,8 @@
 # caddy
 Caddy web server with plugins
 
+version: linux-amd64
+
 ## filemanager syntax:
 
 ````
