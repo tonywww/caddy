@@ -3,7 +3,28 @@ Caddy web server with plugins
 
 version: linux-amd64
 
-## filemanager syntax:
+
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#filemanager-syntax">Filemanager</a>
+    </li>
+    <li>
+      <a href="#forwardproxy-syntax">Forwardproxy</a>
+    </li>
+    <li>
+      <a href="#webdev-syntax">Webdev</a>
+    </li>
+    <li><a href="#license">License</a></li>
+  </ol>
+</details>
+
+
+
+## Filemanager syntax:
 
 ````
 filemanager [url] [scope] {
@@ -21,7 +42,7 @@ filemanager [url] [scope] {
     css                 path
 }
 ````
-- **url** is the URL path where you will access File Browser. Defaults to `/.`
+- **url** is the URL path where you will access File Browser. Defaults to `/`.
 - **database** is the path for the database where the settings will be stored.
 - **no_auth** disables the authentication. This should be enabled if you will use another login method (such as `basicauth`).
 - **recaptcha_key** and **recaptcha_secret** are the Site Key and Secret Key used to enable ReCaptcha on login.
@@ -53,7 +74,7 @@ The following options are mere defaults: they will only be used as the default o
 - **css** is the path for a file with a custom stylesheet.
 
 
-## forwardproxy syntax
+## Forwardproxy syntax
 
 Document: https://github.com/caddyserver/forwardproxy
 
@@ -86,7 +107,7 @@ forwardproxy {
 ````
 
 
-## webdev syntax
+## Webdev syntax
 
 Document: https://github.com/hacdias/caddy-v1-webdav
 
