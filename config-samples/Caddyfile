@@ -1,0 +1,20 @@
+# Caddy v1 config file
+
+your-domain.com {
+#    bind 127.0.0.1
+    tls admin@your-domain.com
+
+    root /var/www/your-domain.com/
+    browse /download/
+#    basicauth /download/ username password
+
+    timeouts {
+        read none
+        write none
+        header none
+        idle 5m
+    }
+
+#    fastcgi / 127.0.0.1:9000 php
+#    fastcgi / /run/php/php7.0-fpm.sock php
+}
