@@ -4,7 +4,6 @@ Caddy web server with plugins
 version: linux-amd64
 
 
-
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
@@ -13,15 +12,20 @@ version: linux-amd64
       <a href="#filemanager-syntax">Filemanager</a>
     </li>
     <li>
+      <a href="#cloudflare-syntax">Cloudflare</a>
+    </li>
+    <li>
       <a href="#forwardproxy-syntax">Forwardproxy</a>
     </li>
     <li>
       <a href="#webdev-syntax">Webdev</a>
     </li>
+    <li>
+      <a href="#filebrowser-syntax">Filebrowser</a>
+    </li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
-
 
 
 ## Filemanager syntax:
@@ -74,6 +78,27 @@ The following options are mere defaults: they will only be used as the default o
 - **css** is the path for a file with a custom stylesheet.
 
 
+## Cloudflare syntax:
+
+Document: https://github.com/caddyserver/dnsproviders
+
+[Caddy 2 also supports the DNS challenge](https://caddyserver.com/docs/automatic-https#dns-challenge) in a similar way to v1, but [using backwards-incompatible APIs](https://github.com/caddy-dns) that are much more flexible and easier to use. This repository is no longer relevant or maintained.
+
+You can then use this in your Caddyfile with the `tls` directive like so:
+
+```plain
+tls {
+	dns cloudflare
+}
+```
+
+Cloudflare API token should be set in environment variables. For example:
+
+````
+export CLOUDFLARE_DNS_API_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxx
+````
+
+
 ## Forwardproxy syntax
 
 Document: https://github.com/caddyserver/forwardproxy
@@ -106,6 +131,17 @@ forwardproxy {
 }
 ````
 
+- **url** is the URL path where you will access File Browser. Defaults to `/`.
+- **database** is the path for the database where the settings will be stored.
+- **no_auth** disables the authentication. This should be enabled if you will use another login method (such as `basicauth`).
+- **recaptcha_key** and **recaptcha_secret** are the Site Key and Secret Key used to enable ReCaptcha on login.
+- **alternative_recaptcha** replaces https://www.google.com to https://recaptcha.net in ReCaptcha handling and serving, especially useful in China. See https://github.com/filebrowser/filebrowser/issues/366 for details. Defaults to `false`.
+
+
+The following options are mere defaults: they will only be used as the default options for **new users**. After creating a user, its settings should be changed through the Web UI. Although, when using `no_auth` option, the following will define the user permissions.
+
+
+- **scope** is the path, relative or absolute, to the directory you want to browse in. Defaults to `./`.
 
 ## Webdev syntax
 
@@ -179,6 +215,25 @@ webdav {
     block /var/www
 }
 ```
+
+
+## Filebrowser syntax:
+
+````
+filebrowser [url] [scope] {
+    database            path
+    auth_method         json
+    recaptcha_key       key
+    recaptcha_secret    secret
+    recaptcha_host      https://recaptcha.net
+}
+````
+
+- **url** is the URL path where you will access File Browser. Defaults to `/`.
+- **scope** is the path, relative or absolute, to the directory you want to browse in. Defaults to `./`.
+- **database** is the path for the database where the settings will be stored.
+- **recaptcha_key** and **recaptcha_secret** are the Site Key and Secret Key used to enable ReCaptcha on login.
+- **recaptcha_host** By default, we use Google's reCAPTCHA service. If you live in China, or want to use other provider, you can change the host to http://recaptcha.net.
 
 
 ## License
