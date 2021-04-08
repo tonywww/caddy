@@ -1,7 +1,11 @@
 # caddy
 Caddy web server with plugins
 
-version: linux-amd64
+(version: linux-amd64)
+
+- Caddy 0.11.1 downloaded from official wesbite.
+
+- Caddy 1.05  Compiled by myself with Go 16.3.
 
 
 <!-- TABLE OF CONTENTS -->
@@ -80,7 +84,11 @@ The following options are mere defaults: they will only be used as the default o
 
 ## Cloudflare syntax:
 
-Document: https://github.com/caddyserver/dnsproviders
+Documents:
+
+https://github.com/caddyserver/dnsproviders/
+
+https://go-acme.github.io/lego/dns/cloudflare/
 
 DNS providers for Caddy v1. This can be used to help solve the ACME DNS challenge by plugging them into Caddy 0.9-1.x:
 
@@ -98,6 +106,10 @@ tls {
 
 Cloudflare API token should be set in environment variables. For example:
 
+````
+export CF_DNS_API_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxx
+````
+or 
 ````
 export CLOUDFLARE_DNS_API_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxx
 ````
