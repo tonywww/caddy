@@ -82,13 +82,17 @@ The following options are mere defaults: they will only be used as the default o
 
 Document: https://github.com/caddyserver/dnsproviders
 
-[Caddy 2 also supports the DNS challenge](https://caddyserver.com/docs/automatic-https#dns-challenge) in a similar way to v1, but [using backwards-incompatible APIs](https://github.com/caddy-dns) that are much more flexible and easier to use. This repository is no longer relevant or maintained.
+DNS providers for Caddy v1. This can be used to help solve the ACME DNS challenge by plugging them into Caddy 0.9-1.x:
+
+Caddy 0.9 and newer supports solving the ACME DNS challenge. This challenge is unique because the server that is requesting a TLS certificate does not need to start a listener and be accessible from external networks. This quality is essential when behind load balancers or in other advanced networking scenarios.
+
+The DNS challenge sets a DNS record and the ACME server verifies its correctness in order to issue the certificate. Caddy can do this for you automatically, but it needs credentials to your DNS provider to do so. 
 
 You can then use this in your Caddyfile with the `tls` directive like so:
 
 ```plain
 tls {
-	dns cloudflare
+     dns cloudflare
 }
 ```
 
