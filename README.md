@@ -239,17 +239,18 @@ webdav {
 filebrowser [url] [scope] {
     database            path
     auth_method         json
+    recaptcha_host      https://www.google.com
     recaptcha_key       key
     recaptcha_secret    secret
-    recaptcha_host      https://recaptcha.net
+
 }
 ````
 
 - **url** is the URL path where you will access File Browser. Defaults to `/`.
 - **scope** is the path, relative or absolute, to the directory you want to browse in. Defaults to `./`.
 - **database** is the path for the database where the settings will be stored.
+- **recaptcha_host** By default, we use Google's reCAPTCHA service. If you live in China, or want to use other provider, you can change the host to `https://recaptcha.net`.
 - **recaptcha_key** and **recaptcha_secret** are the Site Key and Secret Key used to enable ReCaptcha on login.
-- **recaptcha_host** By default, we use Google's reCAPTCHA service. If you live in China, or want to use other provider, you can change the host to http://recaptcha.net.
 
 
 ## License
