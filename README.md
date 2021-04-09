@@ -5,7 +5,7 @@ Caddy web server with plugins
 
 - Caddy 0.11.1 downloaded from official wesbite.
 
-- Caddy 1.05  Compiled by myself with Go 16.3.
+- Caddy 1.05  Compiled by myself with Go 1.16.3.
 
 
 <!-- TABLE OF CONTENTS -->
@@ -242,7 +242,6 @@ filebrowser [url] [scope] {
     recaptcha_host      https://www.google.com
     recaptcha_key       key
     recaptcha_secret    secret
-
 }
 ````
 
