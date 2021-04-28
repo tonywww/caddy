@@ -5,6 +5,8 @@ Caddy web server with plugins
 
 - Caddy 0.11.1 downloaded from official wesbite.
 
+  Download short url: http://git.io/caddy0
+
 - Caddy 1.05  Compiled by myself with Go 1.16.3.
 
 
